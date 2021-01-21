@@ -16,3 +16,4 @@ jobs:
       with:
         dotnet-version: '3.1.405' # SDK Version to use; x will use the latest version of the 3.1 channel
     - run: dotnet build
+    - run: dotnet test
