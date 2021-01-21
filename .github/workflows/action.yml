@@ -19,5 +19,4 @@ jobs:
         node-version: '11.13.0'
     - run: dotnet build
     - run: dotnet test
-    - run: cd DotnetTemplate.Web && npm i
-    - run: npm t
+    - run: cd DotnetTemplate.Web && npm i && npm t && npm run lint
