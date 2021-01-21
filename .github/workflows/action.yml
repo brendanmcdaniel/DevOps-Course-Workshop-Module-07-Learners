@@ -13,7 +13,10 @@ jobs:
         who-to-greet: 'Mona the Octocat'
     - uses: actions/checkout@main
     - uses: actions/setup-dotnet@v1
+    - uses: actions/setup-node@v1
       with:
         dotnet-version: '3.1.405' # SDK Version to use; x will use the latest version of the 3.1 channel
+        node-version: '11.13.0'
     - run: dotnet build
     - run: dotnet test
+    - run: cd DotnetTemplate.Web && npm i
