@@ -25,14 +25,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-
-    - name: Get commit hash
-      run: echo ::set-env name=COMMIT_HASH::$(echo ${GITHUB_SHA})
-
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
         name: brendanmcd/dotnettemplate
         username: ${{ secrets.DOCKER_HUB_USER }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-        tags: "latest,${{ env.COMMIT_HASH }}"
+        tags: "latest,${{ github.sha }}"
