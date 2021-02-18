@@ -31,4 +31,4 @@ jobs:
         name: brendanmcd/dotnettemplate
         username: ${{ secrets.DOCKER_HUB_USER }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-        tags: "${{ GITHUB_SHA }},${{ GITHUB_REF }}"
+        tags: "${{ env.GITHUB_SHA }},${{ env.GITHUB_REF }}"
