@@ -36,4 +36,4 @@ jobs:
         name: brendanmcd/dotnettemplate
         username: ${{ secrets.DOCKER_HUB_USER }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-        tags: "${{ steps.vars.outputs.sha_short }},${{ steps.vars.outputs.branch }}"
+        tags: "$GITHUB_SHA,$GITHUB_REF"
