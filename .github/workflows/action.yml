@@ -31,8 +31,8 @@ jobs:
     - uses: actions/checkout@master
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
-      - run: docker build -t brendanmcd/dotnettemplate:${{ steps.vars.outputs.sha_short }} -t brendanmcd/dotnettemplate:${{ steps.vars.outputs.branch }} -f Dockerfile .
       with:
         name: brendanmcd/dotnettemplate
         username: ${{ secrets.DOCKER_HUB_USER }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+        tags: "${{ steps.vars.outputs.sha_short }},${{ steps.vars.outputs.branch }}"
