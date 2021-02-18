@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main                    # Will make the workflow run every time you push to any branch
+      - feature/actions
   
 jobs:
   build-test:
