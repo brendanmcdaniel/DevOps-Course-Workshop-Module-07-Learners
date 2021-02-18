@@ -10,7 +10,7 @@ jobs:
     name: Build and test
     runs-on: ubuntu-latest      # Sets the build environment a machine with the latest Ubuntu installed
     steps:
-    - uses: actions/checkout@main
+    - uses: actions/checkout@v2
     - uses: actions/setup-dotnet@v1
     - uses: actions/setup-node@v1
       with:
@@ -24,11 +24,11 @@ jobs:
     name: docker-publish  
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v2
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
         name: brendanmcd/dotnettemplate
         username: ${{ secrets.DOCKER_HUB_USER }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-        tags: "${{ steps.vars.outputs.sha_short }},${{ steps.vars.outputs.branch }}"
+        tags: "latest,${{ env.GITHUB_SHA }}"
