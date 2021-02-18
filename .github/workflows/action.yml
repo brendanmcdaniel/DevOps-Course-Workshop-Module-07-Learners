@@ -32,3 +32,9 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USER }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
         tags: "latest,${{ github.sha }}"
+    - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action
+      with:
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: "bmcdaniel" #Must be unique in Heroku
+        heroku_email: "brendan.mcd@aexp.com"
+        usedocker: true
