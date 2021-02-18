@@ -2,6 +2,8 @@ name: Continuous Integration
 on: [push]                      # Will make the workflow run every time you push to any branch
 
 jobs:
+  name: Continuous Integration1
+  on: [push]  
   job1:
     build:
       name: Build and test
